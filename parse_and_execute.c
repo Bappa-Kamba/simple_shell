@@ -1,6 +1,31 @@
 #include "shell.h"
 
 /**
+ * execute_absolute_path - Execute the command if it's an absolute path
+ * @command: The full path of the command to execute
+ * @args: The arguments for the command
+ *
+ * Return: 0 on success, -1 on failure
+ */
+int execute_absolute_path(char *command, char *args[])
+{
+	if (access(command, X_OK) == 0)
+	{
+		if (execute_command(command, args) == -1)
+		{
+			return (-1);
+		}
+	}
+	else
+	{
+		printf("Command not found: %s\n", command);
+		return (-1);
+	}
+
+	return (0);
+}
+
+/**
  * parse_and_execute - Parse and execute the command
  * @buffer: The input command line string
  * @args: An array to store the arguments
@@ -17,14 +42,17 @@ int parse_and_execute(char *buffer, char *args[], char **full_path)
 
 	if (strcmp(args[0], "exit") == 0)
 	{
-		my_exit();
+		builtin_exit();
 		return (0);
 	}
 	else if (strcmp(args[0], "env") == 0)
 	{
-		my_env();
+		builtin_env();
 		return (1);
 	}
+
+	if (args[0][0] == '/')
+		return (execute_absolute_path(args[0], args));
 
 	if (*full_path != NULL)
 		free(*full_path);
@@ -43,3 +71,4 @@ int parse_and_execute(char *buffer, char *args[], char **full_path)
 
 	return (1);
 }
+
