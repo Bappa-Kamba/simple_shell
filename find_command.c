@@ -10,7 +10,7 @@ char *find_command(char *command)
 {
     struct stat st;
 
-    // Check if the user typed in the absolute path
+    # Check if the user typed in the absolute path
     if (access(command, X_OK) == 0)
     {
         return strdup(command);

@@ -18,8 +18,8 @@
 void display_prompt(void);
 int parse_arguments(char *buffer, char *args[]);
 char *find_command(char *command);
-void _exit(void);
-void _env(void);
+void my_exit(void);
+void my_env(void);
 int _putchar(char c);
 
 #endif /* SHELL_H */

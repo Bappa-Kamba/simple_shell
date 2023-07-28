@@ -3,7 +3,7 @@
 /**
  * builtin_env - Print the current environment variables
  */
-void _env(void)
+void my_env(void)
 {
     extern char **environ;
     char **env = environ;

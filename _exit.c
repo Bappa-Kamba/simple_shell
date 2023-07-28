@@ -3,7 +3,7 @@
 /**
  * builtin_exit - Exit the shell
  */
-void _exit(void)
+void my_exit(void)
 {
     exit(EXIT_SUCCESS);
 }
