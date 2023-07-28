@@ -5,5 +5,10 @@
  */
 void display_prompt(void)
 {
-    printf("$ "); # Change the prompt as desired
+    /* Variable declarations at the top */
+    size_t size = 2;
+    char *prompt = "$ ";
+
+    /* Rest of the code follows */
+    printf("%s", prompt);
 }

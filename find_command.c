@@ -8,18 +8,13 @@
  */
 char *find_command(char *command)
 {
+    /* Variable declarations at the top */
     struct stat st;
-
-    # Check if the user typed in the absolute path
-    if (access(command, X_OK) == 0)
-    {
-        return strdup(command);
-    }
-
     char *path = getenv("PATH");
     char *token, *path_copy;
     char *full_path = (char *)malloc(BUFFER_SIZE);
 
+    /* Rest of the code follows */
     if (path == NULL || full_path == NULL)
     {
         perror("Memory allocation error");
