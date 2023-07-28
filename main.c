@@ -11,7 +11,6 @@ int main(void)
     char *buffer = NULL;
     size_t buffer_size = 0;
     char *args[MAX_ARGS];
-    char *full_path = NULL;
     int status;
 
     /* Rest of the code follows */
@@ -48,52 +47,24 @@ int main(void)
         }
         else
         {
-            if (full_path != NULL)
-            {
-                free(full_path);
-            }
-            full_path = find_command(args[0]);
-            if (full_path == NULL)
-            {
-                printf("Command not found: %s\n", args[0]);
-                continue;
-            }
+            _execve(args[0], args)
+        }
+        else
+        {
+            waitpid(pid, &status, 0);
 
-            pid_t pid = fork();
-
-            if (pid < 0)
+            if (WIFEXITED(status))
             {
-                perror("Fork failed");
-                free(full_path);
-                _exit(EXIT_FAILURE);
-            }
-            else if (pid == 0)
-            {
-                if (execve(full_path, args, NULL) == -1)
+                int exit_status = WEXITSTATUS(status);
+                if (exit_status != 0)
                 {
-                    perror("Error executing command");
-                    free(full_path);
-                    _exit(EXIT_FAILURE);
+                    printf("Command returned non-zero exit status: %d\n", exit_status);
                 }
-
-                _exit(EXIT_SUCCESS);
             }
             else
             {
-                waitpid(pid, &status, 0);
-
-                if (WIFEXITED(status))
-                {
-                    int exit_status = WEXITSTATUS(status);
-                    if (exit_status != 0)
-                    {
-                        printf("Command returned non-zero exit status: %d\n", exit_status);
-                    }
-                }
-                else
-                {
-                    printf("Command did not terminate normally\n");
-                }
+                printf("Command did not terminate normally\n");
+            }
             }
         }
     }

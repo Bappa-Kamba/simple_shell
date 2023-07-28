@@ -21,5 +21,6 @@ char *find_command(char *command);
 void my_exit(void);
 void my_env(void);
 int _putchar(char c);
+void _execve(char command[]);
 
 #endif /* SHELL_H */
