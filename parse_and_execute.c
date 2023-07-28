@@ -42,12 +42,12 @@ int parse_and_execute(char *buffer, char *args[], char **full_path)
 
 	if (strcmp(args[0], "exit") == 0)
 	{
-		builtin_exit();
+		my_exit();
 		return (0);
 	}
 	else if (strcmp(args[0], "env") == 0)
 	{
-		builtin_env();
+		my_env();
 		return (1);
 	}
 
