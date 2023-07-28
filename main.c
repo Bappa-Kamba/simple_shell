@@ -13,6 +13,8 @@ int main(void)
     char *args[MAX_ARGS];
     char *full_path = NULL;
     int status;
+    size_t length;
+    int arg_count;
 
     /* Rest of the code follows */
     while (1)
@@ -27,14 +29,14 @@ int main(void)
         }
 
         /* Remove the newline character from the input */
-        size_t length = strlen(buffer);
+        length = strlen(buffer);
         if (length > 0 && buffer[length - 1] == '\n')
         {
             buffer[length - 1] = '\0';
         }
 
         /* Parse the command line into arguments */
-        int arg_count = parse_arguments(buffer, args);
+        arg_count = parse_arguments(buffer, args);
 
         /* Check if the command is empty */
         if (arg_count == 0)
@@ -45,12 +47,12 @@ int main(void)
         /* Check if the user wants to exit */
         if (strcmp(args[0], "exit") == 0)
         {
-            builtin_exit();
+            my_exit();
         }
         /* Check if the user wants to print the environment variables */
         else if (strcmp(args[0], "env") == 0)
         {
-            builtin_env();
+            my_env();
         }
         else
         {
