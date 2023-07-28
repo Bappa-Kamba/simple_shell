@@ -25,6 +25,6 @@ void my_env(void);
 int _putchar(char c);
 void _execve(char command[]);
 int parse_and_execute(char *buffer, char *args[], char **full_path);
-int execute_command(char *command, char * args[]);
+int execute_command(char *command, char *args[]);
 
 #endif /* SHELL_H */
