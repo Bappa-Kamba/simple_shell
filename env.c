@@ -5,8 +5,7 @@
  */
 void my_env(void)
 {
-    extern char **environ;
-    char **env = environ;
+    char **env = ENV;
 
     while (*env != NULL)
     {

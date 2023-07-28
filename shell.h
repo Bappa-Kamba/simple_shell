@@ -14,6 +14,9 @@
 #define BUFFER_SIZE 1024
 #define MAX_ARGS 64
 
+extern char **environ;
+#define ENV environ;
+
 void display_prompt(void);
 int parse_arguments(char *buffer, char *args[]);
 char *find_command(char *command);
