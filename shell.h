@@ -10,7 +10,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <dirent.h>
-#include <signal.h>
 
 #define BUFFER_SIZE 1024
 #define MAX_ARGS 64
