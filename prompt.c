@@ -6,8 +6,9 @@
 void display_prompt(void)
 {
     /* Variable declarations at the top */
+    size_t size = 2;
     char *prompt = "$ ";
 
     /* Rest of the code follows */
-    printf("%s", prompt);
+    printf("%s", prompt); /* Change the prompt as desired */
 }
