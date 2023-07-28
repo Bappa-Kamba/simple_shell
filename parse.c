@@ -9,16 +9,16 @@
  */
 int parse_arguments(char *buffer, char *args[])
 {
-    char *token;
-    int count = 0;
+	char *token;
+	int count = 0;
 
-    token = strtok(buffer, " \t\n\r");
-    while (token != NULL && count < MAX_ARGS - 1)
-    {
-        args[count] = token;
-        token = strtok(NULL, " \t\n\r");
-        count++;
-    }
-    args[count] = NULL;
-    return (count);
+	token = strtok(buffer, " \t\n\r");
+	while (token != NULL && count < MAX_ARGS - 1)
+	{
+		args[count] = token;
+		token = strtok(NULL, " \t\n\r");
+		count++;
+	}
+	args[count] = NULL;
+	return (count);
 }

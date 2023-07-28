@@ -15,7 +15,7 @@
 #define MAX_ARGS 64
 
 extern char **environ;
-#define ENV environ;
+#define ENV environ
 
 void display_prompt(void);
 int parse_arguments(char *buffer, char *args[]);
@@ -24,5 +24,7 @@ void my_exit(void);
 void my_env(void);
 int _putchar(char c);
 void _execve(char command[]);
+int parse_and_execute(char *buffer, char *args[], char **full_path);
+int execute_command(char *command, char * args[]);
 
 #endif /* SHELL_H */

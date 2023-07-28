@@ -5,7 +5,7 @@
  */
 void display_prompt(void)
 {
-    char *prompt = "$ ";
+	char *prompt = "$ ";
 
-    printf("%s", prompt);
+	printf("%s", prompt);
 }

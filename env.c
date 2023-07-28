@@ -1,15 +1,15 @@
 #include "shell.h"
 
 /**
- * builtin_env - Print the current environment variables
+ * my_env - Print the current environment variables
  */
 void my_env(void)
 {
-    char **env = ENV;
+	char **env = ENV;
 
-    while (*env != NULL)
-    {
-        printf("%s\n", *env);
-        env++;
-    }
+	while (*env != NULL)
+	{
+		printf("%s\n", *env);
+		env++;
+	}
 }
