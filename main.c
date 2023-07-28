@@ -15,6 +15,7 @@ int main(void)
     int status;
     size_t length;
     int arg_count;
+    pid_t pid;
 
     /* Rest of the code follows */
     while (1)
@@ -69,7 +70,7 @@ int main(void)
             }
 
             /* Fork a new process to execute the command */
-            pid_t pid = fork();
+            pid = fork();
 
             if (pid < 0)
             {
