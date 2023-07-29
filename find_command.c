@@ -19,7 +19,7 @@ char *find_command(char *command)
 		return (NULL);
 	}
 
-	path_copy = strdup(path);
+	path_copy = __strdup(path);
 	if (path_copy == NULL)
 	{
 		perror("Memory allocation error");
@@ -30,7 +30,7 @@ char *find_command(char *command)
 	token = strtok(path_copy, ":");
 	while (token != NULL)
 	{
-		snprintf(full_path, BUFFER_SIZE, "%s/%s", token, command);
+		_putchar(full_path, BUFFER_SIZE, "%s/%s", token, command);
 		if (stat(full_path, &st) == 0 && (st.st_mode & S_IXUSR))
 		{
 			free(path_copy);

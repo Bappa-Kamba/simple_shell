@@ -19,11 +19,11 @@ int main(void)
 
 		if (getline(&buffer, &buffer_size, stdin) == -1)
 		{
-			printf("\n"); /* To handle "end of file" condition (Ctrl+D) */
+			_putchar("\n"); /* To handle "end of file" condition (Ctrl+D) */
 			break;
 		}
 
-		length = strlen(buffer);
+		length = _strlen(buffer);
 		if (length > 0 && buffer[length - 1] == '\n')
 		{
 			buffer[length - 1] = '\0';

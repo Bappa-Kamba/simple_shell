@@ -5,6 +5,6 @@
  */
 void my_exit(void)
 {
-	printf("Exiting...");
+	_putchar("Exiting...");
 	_exit(EXIT_SUCCESS);
 }

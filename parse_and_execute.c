@@ -18,7 +18,7 @@ int execute_absolute_path(char *command, char *args[])
 	}
 	else
 	{
-		printf("Command not found: %s\n", command);
+		_putchar("Command not found: %s\n", command);
 		return (-1);
 	}
 
@@ -40,12 +40,12 @@ int parse_and_execute(char *buffer, char *args[], char **full_path)
 	if (arg_count == 0)
 		return (1);
 
-	if (strcmp(args[0], "exit") == 0)
+	if (__strcmp(args[0], "exit") == 0)
 	{
 		my_exit();
 		return (0);
 	}
-	else if (strcmp(args[0], "env") == 0)
+	else if (__strcmp(args[0], "env") == 0)
 	{
 		my_env();
 		return (1);
@@ -60,7 +60,7 @@ int parse_and_execute(char *buffer, char *args[], char **full_path)
 
 	if (*full_path == NULL)
 	{
-		printf("Command not found: %s\n", args[0]);
+		_putchar("Command not found: %s\n", args[0]);
 		return (1);
 	}
 

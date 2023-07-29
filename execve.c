@@ -36,12 +36,12 @@ int execute_command(char *command, char *args[])
 			exit_status = WEXITSTATUS(status);
 			if (exit_status != 0)
 			{
-				printf("Command returned non-zero exit status: %d\n", exit_status);
+				_putchar("Command returned non-zero exit status: %d\n", exit_status);
 			}
 		}
 		else
 		{
-			printf("Command did not terminate normally\n");
+			_putchar("Command did not terminate normally\n");
 		}
 	}
 
